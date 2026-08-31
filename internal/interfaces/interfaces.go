@@ -212,3 +212,5 @@ func Example() string {
 	fmt.Fprintf(&out, "describe: %s", Describe(User{ID: 8, Name: "Alex"}))
 	return out.String()
 }
+
+//check ci/cd
