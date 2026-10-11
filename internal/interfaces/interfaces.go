@@ -123,6 +123,8 @@ func Describe(value any) string {
 		return fmt.Sprintf("string:%s", value)
 	case User:
 		return fmt.Sprintf("user:%s", value.String())
+	case Notifier:
+		return fmt.Sprintf("notifier:%s", value.Notify("ping"))
 	case Loader:
 		str, err := value.Load()
 		if err != nil {
@@ -131,8 +133,6 @@ func Describe(value any) string {
 		return fmt.Sprintf("loader:%s", str)
 	case error:
 		return fmt.Sprintf("error:%s", value.Error())
-	case Notifier:
-		return fmt.Sprintf("notifier:%s", value.Notify("ping"))
 	default:
 		return fmt.Sprintf("unknown:%T", value)
 	}
