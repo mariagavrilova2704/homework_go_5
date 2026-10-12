@@ -48,14 +48,7 @@ func WriteLines(w io.Writer, lines []string) error {
 
 // TODO: CopyAll должен скопировать все данные из src в dst и вернуть число байт.
 func CopyAll(dst io.Writer, src io.Reader) (int64, error) {
-	data, err := io.ReadAll(src)
-	if err != nil {
-		return 0, err
-	}
-
-	return io.Copy(dst, strings.NewReader(string(data)))
-
-	// return io.Copy(dst,src)
+	return io.Copy(dst, src)
 }
 
 // TODO: CopyUpper должен прочитать src, привести текст к верхнему регистру и записать в dst.
